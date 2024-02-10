@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 // Package distribution implements a logger which compatible to logrus/std log/prometheus.
 package distribution
 
 import (
 	"fmt"
 
-	logruslogger "github.com/seacraft/log/logrus"
 	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
+
+	logruslogger "github.com/seacraft/log/logrus"
 )
 
 // Logger is a logger which compatible to logrus/std log/prometheus.

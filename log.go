@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 // Package log is a log package used by TKE team.
 package log
 
@@ -164,7 +165,10 @@ func handleFields(l *zap.Logger, args []interface{}, additional ...zap.Field) []
 		keyStr, isString := key.(string)
 		if !isString {
 			// if the key isn't a string, DPanic and stop logging
-			l.DPanic("non-string key argument passed to logging, ignoring all later arguments", zap.Any("invalid key", key))
+			l.DPanic(
+				"non-string key argument passed to logging, ignoring all later arguments",
+				zap.Any("invalid key", key),
+			)
 			break
 		}
 
@@ -180,8 +184,7 @@ var (
 	options *Options
 )
 
-// nolint: gochecknoinits // need to init a default logger
-func init() {
+func init() { //nolint: gochecknoinits // need to init a default logger
 	Init(NewOptions())
 }
 
@@ -438,10 +441,12 @@ func Fatalw(msg string, keysAndValues ...interface{}) {
 	logger.zapLogger.Sugar().Fatalw(msg, keysAndValues...)
 }
 
+// GetOptions get  Logger options.
 func GetOptions() *Options {
 	return options
 }
 
+// GetLogger get  Logger instance.
 func GetLogger() *zapLogger {
 	return logger
 }

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package log
 
 import (
@@ -38,11 +39,11 @@ const (
 
 // Options contains configuration items related to log.
 type Options struct {
-	Level            string   `json:"level" mapstructure:"level"`
-	Format           string   `json:"format" mapstructure:"format"`
-	EnableColor      bool     `json:"enable-color" mapstructure:"enable-color"`
-	EnableCaller     bool     `json:"enable-caller" mapstructure:"enable-caller"`
-	OutputPaths      []string `json:"output-paths" mapstructure:"output-paths"`
+	Level            string   `json:"level"              mapstructure:"level"`
+	Format           string   `json:"format"             mapstructure:"format"`
+	EnableColor      bool     `json:"enable-color"       mapstructure:"enable-color"`
+	EnableCaller     bool     `json:"enable-caller"      mapstructure:"enable-caller"`
+	OutputPaths      []string `json:"output-paths"       mapstructure:"output-paths"`
 	ErrorOutputPaths []string `json:"error-output-paths" mapstructure:"error-output-paths"`
 }
 

@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 // Package logrus adds a hook to the logrus logger hooks.
 package logrus
 
 import (
-	"io/ioutil"
+	"io"
 
 	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
@@ -26,7 +27,7 @@ import (
 // NewLogger create a logrus logger, add hook to it and return it.
 func NewLogger(zapLogger *zap.Logger) *logrus.Logger {
 	logger := logrus.New()
-	logger.SetOutput(ioutil.Discard)
+	logger.SetOutput(io.Discard)
 	logger.AddHook(newHook(zapLogger))
 	return logger
 }
